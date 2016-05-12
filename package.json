@@ -1,0 +1,11 @@
+{
+    "name": "taskless",
+    "version": "0.0.0",
+    "description": "Assignment Organizer.",
+    "main": "server.js",
+    "author": "Cody Clawson",
+    "dependencies": {
+        "body-parser": "^1.4.3",
+        "express": "^4.13.4"
+    }
+}

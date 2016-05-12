@@ -1,0 +1,46 @@
+html {
+    overflow: hidden;
+}
+
+.box {
+    margin: 0 0 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 20px;
+}
+
+@media (min-width: 768px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
+    }
+    .sidebar-nav .navbar ul {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+#loginbar {
+    width: 100%;
+}
+
+#login {
+    float: right;
+    margin-right: 50px;
+    margin: 20px;
+}
+
+#logo {
+    margin-top: 20px;
+    float: left;
+}
