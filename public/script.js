@@ -1,4 +1,4 @@
-var mainApp = angular.module("mainApp", ['ngRoute', 'ngAnimate']);
+var mainApp = angular.module("mainApp", ['ngRoute', 'ngAnimate', 'ngCookies']);
 
 mainApp.config(['$routeProvider',
 function ($routeProvider) {
@@ -19,13 +19,17 @@ function ($routeProvider) {
             templateUrl: 'AngularTemplates/login.html',
             controller: 'LoginController'
         }).
+        when('/register', {
+            templateUrl: 'AngularTemplates/register.html',
+            controller: 'RegisterController'
+        }).
         otherwise({
             redirectTo: '/home'
         });
 }]);
 
 
-mainApp.run(function ($rootScope) {
+mainApp.run(function ($rootScope, $cookies) {
 
     $rootScope.steps = [{
             msg: 'Home',
@@ -44,6 +48,7 @@ mainApp.run(function ($rootScope) {
         $rootScope.activeStep = menuitem;
     };
 
+    $rootScope.username = $cookies.get('username');
 
 });
 
@@ -51,7 +56,7 @@ mainApp.run(function ($rootScope) {
 
 
 mainApp.controller('HomeController', function ($scope, $rootScope) {
-
+    //    $scope.loggedUser = $cookies.get('username');
 });
 
 mainApp.controller('AssignmentController', function ($scope, $rootScope) {
@@ -59,5 +64,25 @@ mainApp.controller('AssignmentController', function ($scope, $rootScope) {
 });
 
 mainApp.controller('TeacherController', function ($scope, $rootScope) {
+
+});
+
+
+mainApp.controller('RegisterController', function ($scope, $rootScope, $http, $location) {
+    $scope.User = {};
+    $scope.errorMessage = '';
+
+    $scope.register = function () {
+        $http.post('/register', $scope.User).
+        success(function (data) {
+            $location.path('/');
+        }).error(function (err) {
+            $scope.errorMessage = err;
+        });
+    }
+});
+
+
+mainApp.controller('LoginController', function ($scope, $rootScope) {
 
 });

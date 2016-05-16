@@ -1,0 +1,42 @@
+{
+    "users": {
+        "users": [
+            {
+                "username": "a",
+                "password": "a"
+            },
+            {
+                "username": "c",
+                "password": "c"
+            },
+            {
+                "username": "c",
+                "password": "c"
+            },
+            {
+                "username": "c",
+                "password": "x"
+            },
+            {
+                "username": "c",
+                "password": "c"
+            },
+            {
+                "username": "a",
+                "password": "a"
+            },
+            {
+                "username": "d",
+                "password": "d"
+            },
+            {
+                "username": "hello",
+                "password": "test"
+            },
+            {
+                "username": "cody",
+                "password": "c"
+            }
+        ]
+    }
+}
