@@ -1,1 +1,12 @@
-<h2>Assignment</h2>
+<div class="logincont">
+    <form method="post">
+        <div class=" alert alert-danger " ng-if="errorMessage ">{{errorMessage}}</div>
+        <form class="form-signin ">
+            <h2 class="form-signin-heading ">Add Assignment</h2>
+            <input type="text " class="form-control " name="name " placeholder="Assignment name " ng-model="Assignment.name " required autofocus>
+            <input type="text " class="form-control " name="class " placeholder="Class name " ng-model="Assignment.class " required autofocus>
+            <input type="select" class="form-control " name="rating" placeholder="Difficulty Rating" ng-model="Assignment.rating" required autofocus>
+            <button class="btn btn-lg btn-primary btn-block " ng-click="addAssignment() ">Add</button>
+        </form>
+    </form>
+</div>

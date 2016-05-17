@@ -2,40 +2,12 @@
     "users": {
         "users": [
             {
-                "username": "a",
-                "password": "a"
+                "username": "Cody",
+                "password": "Test"
             },
             {
-                "username": "c",
-                "password": "c"
-            },
-            {
-                "username": "c",
-                "password": "c"
-            },
-            {
-                "username": "c",
-                "password": "x"
-            },
-            {
-                "username": "c",
-                "password": "c"
-            },
-            {
-                "username": "a",
-                "password": "a"
-            },
-            {
-                "username": "d",
-                "password": "d"
-            },
-            {
-                "username": "hello",
+                "username": "Test",
                 "password": "test"
-            },
-            {
-                "username": "cody",
-                "password": "c"
             }
         ]
     }

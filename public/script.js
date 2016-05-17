@@ -29,7 +29,7 @@ function ($routeProvider) {
 }]);
 
 
-mainApp.run(function ($rootScope, $cookies) {
+mainApp.run(function ($rootScope, $cookies, $location, $route) {
 
     $rootScope.steps = [{
             msg: 'Home',
@@ -44,11 +44,20 @@ mainApp.run(function ($rootScope, $cookies) {
      }];
 
     $rootScope.activeStep = $rootScope.steps[0];
+
     $rootScope.setActive = function (menuitem) {
         $rootScope.activeStep = menuitem;
     };
 
     $rootScope.username = $cookies.get('username');
+
+    $rootScope.logout = function () {
+        console.log("logout clicked")
+        $cookies.remove('username');
+        $location.path('/');
+        window.location.reload();
+    }
+
 
 });
 
@@ -68,7 +77,7 @@ mainApp.controller('TeacherController', function ($scope, $rootScope) {
 });
 
 
-mainApp.controller('RegisterController', function ($scope, $rootScope, $http, $location) {
+mainApp.controller('RegisterController', function ($scope, $rootScope, $http, $location, $route) {
     $scope.User = {};
     $scope.errorMessage = '';
 
@@ -76,6 +85,7 @@ mainApp.controller('RegisterController', function ($scope, $rootScope, $http, $l
         $http.post('/register', $scope.User).
         success(function (data) {
             $location.path('/');
+            window.location.reload();
         }).error(function (err) {
             $scope.errorMessage = err;
         });
@@ -83,6 +93,17 @@ mainApp.controller('RegisterController', function ($scope, $rootScope, $http, $l
 });
 
 
-mainApp.controller('LoginController', function ($scope, $rootScope) {
+mainApp.controller('LoginController', function ($scope, $rootScope, $http, $location, $route) {
+    $scope.User = {};
+    $scope.errorMessage = '';
 
+    $scope.login = function () {
+        $http.post('/login', $scope.User).
+        success(function (data) {
+            $location.path('/');
+            window.location.reload();
+        }).error(function (err) {
+            $scope.errorMessage = err;
+        });
+    }
 });

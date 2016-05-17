@@ -26,12 +26,15 @@
 
 <body ng-app="mainApp">
     <div class="container" id="loginbar">
-        <div id="logo">Taskless</div>
+        <a href="#home">
+            <div id="logo" ng-click="setActive(steps[0])">Taskless</div>
+        </a>
         <a href="#login" ng-if="username == undefined">
             <button class="btn btn-default" id="login">Login / SignUp</button>
         </a>
         <div id="loggeduser" ng-if="username != undefined">
-            Hello {{username}}
+            <span id="welcome">Welcome {{username}}</span>
+            <button ng-click="logout()" class="btn btn-default">Logout</button>
         </div>
     </div>
     <div class="row">

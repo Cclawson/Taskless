@@ -43,10 +43,42 @@ html {
 #logo {
     margin-top: 20px;
     float: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    text-align: center;
+    background-color: cadetblue;
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#logo:hover {
+    background-color: rgba(95, 158, 160, .8);
 }
 
 #loggeduser {
     float: right;
     margin-top: 20px;
     font-size: 1.5em;
+}
+
+.logincont {
+    width: 400px;
+    float: none;
+    margin: auto;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+.btn-block {
+    margin: 10px;
+}
+
+#welcome {
+    font-size: .8em;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

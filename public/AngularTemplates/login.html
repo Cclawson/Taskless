@@ -1,13 +1,14 @@
-<h2>Login</h2>
-<form method="post" action="/">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name">
-    <br>
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email">
-    <br>
-    <input type="submit" value="Submit">
-</form>
-<a ng-href="#register">
-    <button>Register</button>
-</a>
+<div class="logincont">
+    <form method="post">
+        <div class=" alert alert-danger " ng-if="errorMessage ">{{errorMessage}}</div>
+        <form class="form-signin ">
+            <h2 class="form-signin-heading ">Login</h2>
+            <input type="text " class="form-control " name="username " placeholder="Username " ng-model="User.username " required autofocus>
+            <input type="password" class="form-control " name="password " placeholder="Password " ng-model="User.password " required>
+            <button class="btn btn-lg btn-primary btn-block " ng-click="login() ">Login</button>
+        </form>
+    </form>
+    <a ng-href="#register">
+        <button class="btn btn-lg btn-primary btn-block">Register</button>
+    </a>
+</div>
