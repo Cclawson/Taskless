@@ -2,13 +2,13 @@
     "users": {
         "users": [
             {
-                "username": "Cody",
-                "password": "Test"
-            },
-            {
-                "username": "Test",
-                "password": "test"
+                "username": "user",
+                "password": "admin"
             }
+        ],
+        "assignments": [],
+        "teachers": [
+
         ]
     }
 }

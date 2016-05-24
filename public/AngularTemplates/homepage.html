@@ -1,2 +1,15 @@
-<h2>Home</h2>
-<div>PlaceHolder for Calendar and Schedule</div>
+<h1 ng-if="User == undefined">Please Login to add to your schedule</h1>
+<h2 ng-if="User != undefined">Your Schedule</h2>
+<span ng-if="Assignments.length == 0 && User != undefined"><h3>* You currently do not have any assignments.</h3></span>
+<br>
+<span ng-if="Assignments.length !=0">
+<button class=" btn btn-primary abutton" type="button">
+
+    Assignments Left <span class="badge">{{Assignments.length}}</span>
+</button>
+
+<spanclass="label label-info ">* click an assignment to delete it</span>
+    </span>
+    <div id="calendar"></div>
+
+    <script src="calendar.js"></script>

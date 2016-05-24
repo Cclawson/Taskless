@@ -1,12 +1,37 @@
 <div class="logincont">
-    <form method="post">
+    <form method="post" id="assignmentform">
         <div class=" alert alert-danger " ng-if="errorMessage ">{{errorMessage}}</div>
         <form class="form-signin ">
             <h2 class="form-signin-heading ">Add Assignment</h2>
+            <label for="name">Assignment: </label>
             <input type="text " class="form-control " name="name " placeholder="Assignment name " ng-model="Assignment.name " required autofocus>
-            <input type="text " class="form-control " name="class " placeholder="Class name " ng-model="Assignment.class " required autofocus>
-            <input type="select" class="form-control " name="rating" placeholder="Difficulty Rating" ng-model="Assignment.rating" required autofocus>
-            <button class="btn btn-lg btn-primary btn-block " ng-click="addAssignment() ">Add</button>
+            <label for="class">Class: </label>
+            <input type="text " class="form-control " name="class " placeholder="Class name " ng-model="Assignment.className" required autofocus>
+            <label for="rating">Difficulty: </label>
+            <span>Easy --- Hard</span>
+            <br>
+            <div id="radios">
+                <label for="input1" id="l1"></label>
+                <input id="input1" name="radio" type="radio" ng-checked="true" value=1 ng-model="Assignment.rating" autofocus>
+                <label for="input2" id="l2"></label>
+                <input id="input2" name="radio" type="radio" value=2 ng-model="Assignment.rating" autofocus/>
+                <label for="input3" id="l3"></label>
+                <input id="input3" name="radio" type="radio" value=3 ng-model="Assignment.rating" autofocus/>
+                <label for="input4" id="l4"></label>
+                <input id="input4" name="radio" type="radio" value=4 ng-model="Assignment.rating" autofocus/>
+                <label for="input5" id="l5"></label>
+                <input id="input5" name="radio" type="radio" value=5 ng-model="Assignment.rating" autofocus/>
+                <span id="slider"></span>
+            </div>
+            <br>
+            <br>
+            <md-content>
+                <p>Assigned On: </p>
+                <md-datepicker name="dateField" ng-model="Assignment.StartDate" md-placeholder="Enter date" required></md-datepicker>
+                <p>Due On: </p>
+                <md-datepicker name="dateField" ng-model="Assignment.EndDate" md-placeholder="Enter date" required></md-datepicker>
+            </md-content>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="Add()">Add</button>
         </form>
     </form>
 </div>

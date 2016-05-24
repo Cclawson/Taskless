@@ -1,5 +1,5 @@
 html {
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .box {
@@ -66,19 +66,72 @@ html {
 
 .logincont {
     width: 400px;
-    float: none;
-    margin: auto;
+    float: left;
+    margin-left: 50px;
 }
 
 .form-control {
     margin: 10px;
 }
 
-.btn-block {
+.form .btn-block {
     margin: 10px;
+}
+
+.btn-block {
+    margin-top: 10px;
 }
 
 #welcome {
     font-size: .8em;
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#teacherlist {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#calendar {
+    padding: 20px;
+    margin: auto;
+    height: auto;
+    max-height: 800px;
+    overflow: hidden;
+    max-width: 1000px;
+}
+
+md-content {
+    font-size: 1.5em;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+}
+
+#myModal {
+    overflow: hidden;
+}
+
+#contactinfo {
+    background-color: cadetblue;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+#tcontact {
+    margin-left: 50px;
+}
+
+#emaillink {
+    color: rgb(230, 230, 230);
+}
+
+.abutton:hover {
+    cursor: default;
 }

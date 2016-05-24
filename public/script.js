@@ -1,4 +1,4 @@
-var mainApp = angular.module("mainApp", ['ngRoute', 'ngAnimate', 'ngCookies']);
+var mainApp = angular.module("mainApp", ['ngRoute', 'ngAnimate', 'ngCookies', 'ngMaterial', 'ngMessages']);
 
 mainApp.config(['$routeProvider',
 function ($routeProvider) {
@@ -64,16 +64,90 @@ mainApp.run(function ($rootScope, $cookies, $location, $route) {
 
 
 
-mainApp.controller('HomeController', function ($scope, $rootScope) {
-    //    $scope.loggedUser = $cookies.get('username');
+mainApp.controller('HomeController', function ($scope, $rootScope, $cookies, $http) {
+
+    $scope.Assignments = [];
+    $scope.User = $cookies.get('username');
+    $http.get('/home').
+    success(function (data) {
+        $scope.Assignments = data;
+    }).error(function (err) {
+        $scope.errorMessage = err;
+    });
+
 });
 
-mainApp.controller('AssignmentController', function ($scope, $rootScope) {
+mainApp.controller('AssignmentController', function ($scope, $rootScope, $cookies, $http, $location) {
+    $scope.Assignment = {};
+    $scope.errorMessage = '';
+    $scope.Assignment.rating = 1;
+    $scope.Assignment.color = "#00FFFF";
 
+    checkcolor = function () {
+        if ($scope.Assignment.rating == 1) {
+            $scope.Assignment.color = "#00FFFF";
+        }
+        if ($scope.Assignment.rating == 2) {
+            $scope.Assignment.color = "#ADFF2F";
+        }
+        if ($scope.Assignment.rating == 3) {
+            $scope.Assignment.color = "#FFFF00";
+        }
+        if ($scope.Assignment.rating == 4) {
+            $scope.Assignment.color = "#FFA500";
+        }
+        if ($scope.Assignment.rating == 5) {
+            $scope.Assignment.color = "#FF0000";
+        }
+
+    }
+
+    $scope.Add = function () {
+        checkcolor();
+        if ($cookies.get('username') != null) {
+            $scope.Assignment.userId = $cookies.get('username');
+            $http.post('/addassignment', $scope.Assignment).
+            success(function (data) {
+                document.getElementById('assignmentform').reset();
+                $scope.errorMessage = '';
+
+                $scope.Assignment.color = "#00FFFF";
+
+            }).error(function (err) {
+                $scope.errorMessage = err;
+            });
+        } else {
+            $scope.errorMessage = "Please Login/Register";
+        }
+    }
 });
 
-mainApp.controller('TeacherController', function ($scope, $rootScope) {
+mainApp.controller('TeacherController', function ($scope, $rootScope, $cookies, $http, $location) {
 
+    $scope.Teacher = {};
+    $scope.errorMessage = '';
+    $scope.Teacherlist = [];
+
+    $http.get("/teacher").
+    success(function (data) {
+        $scope.Teacherlist = data;
+        console.log(data);
+    }).error(function (err) {});
+
+    $scope.Add = function () {
+        if ($cookies.get('username') != null) {
+            $scope.Teacher.userId = $cookies.get('username');
+            $http.post('/addteacher', $scope.Teacher).
+            success(function (data) {
+                $scope.Teacherlist = data;
+                $('#myModal').modal('toggle');
+            }).error(function (err) {
+                $scope.errorMessage = err;
+            });
+        } else {
+            $scope.errorMessage = "Please Login/Register";
+        }
+    }
 });
 
 

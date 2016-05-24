@@ -1,12 +1,14 @@
 {
-  "name": "taskless",
-  "version": "0.0.0",
-  "description": "Assignment Organizer.",
-  "main": "server.js",
-  "author": "Cody Clawson",
-  "dependencies": {
-    "body-parser": "^1.4.3",
-    "express": "^4.13.4",
-    "node-json-db": "^0.7.2"
-  }
+    "name": "taskless",
+    "version": "1.0.0",
+    "description": "Assignment Organizer.",
+    "main": "server.js",
+    "author": "Cody Clawson",
+    "dependencies": {
+        "body-parser": "^1.4.3",
+        "express": "^4.13.4",
+        "node-json-db": "^0.7.2",
+        "cookie-parser": "^1.4.1",
+        "moment": "^2.13.0"
+    }
 }

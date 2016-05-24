@@ -1,2 +1,51 @@
 <h2>Teacher</h2>
-<div>PlaceHolder for teacher list</div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add A New Teacher</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add a new Teacher</h4>
+            </div>
+            <div class="modal-body">
+                <div class="logincont">
+                    <form method="post">
+                        <div class=" alert alert-danger " ng-if="errorMessage ">{{errorMessage}}</div>
+                        <form class="form-signin ">
+                            <h2 class="form-signin-heading ">Add Teacher</h2>
+                            <input type="text " class="form-control " name="name " placeholder="Teacher name " ng-model="Teacher.name " required autofocus>
+                            <input type="text " class="form-control " name="class " placeholder="Class name " ng-model="Teacher.className" required autofocus>
+                            <input type="email" class="form-control " name="email" placeholder="Email" ng-model="Teacher.email" autofocus>
+                            <input type="tel" class="form-control " name="telephone" placeholder="Telephone" ng-model="Teacher.phone" autofocus>
+                        </form>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-primary btn-block" ng-click="Add()">Add</button>
+                <button class="btn btn-lg btn-primary btn-block" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="teacherlist">
+    <span ng-repeat="a in Teacherlist"> 
+        <div id="contactinfo">
+            <h3>{{a.name}}-</h3>
+    <div id="tcontact">Class: {{a.class}}
+            <br>
+Email: <a  id="emaillink" href="mailto:{{a.email}}?Subject=" target="_top">{{a.email}}</a>
+            <br>
+Phone: {{a.phone}}
+        </div>
+</div>
+<br>
+</span>
