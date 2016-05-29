@@ -8,7 +8,12 @@
         ],
         "assignments": [],
         "teachers": [
-
+            {
+                "name": "t",
+                "class": "t",
+                "phone": "t",
+                "userId": "user"
+            }
         ]
     }
 }

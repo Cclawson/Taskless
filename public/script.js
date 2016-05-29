@@ -52,7 +52,6 @@ mainApp.run(function ($rootScope, $cookies, $location, $route) {
     $rootScope.username = $cookies.get('username');
 
     $rootScope.logout = function () {
-        console.log("logout clicked")
         $cookies.remove('username');
         $location.path('/');
         window.location.reload();
@@ -78,11 +77,19 @@ mainApp.controller('HomeController', function ($scope, $rootScope, $cookies, $ht
 });
 
 mainApp.controller('AssignmentController', function ($scope, $rootScope, $cookies, $http, $location) {
+
+    angular.element(".md-datepicker-button").each(function () {
+        var el = this;
+        var ip = angular.element(el).parent().find("input").bind('click', function (e) {
+            angular.element(el).click();
+        });
+    });
+
     $scope.Assignment = {};
     $scope.errorMessage = '';
     $scope.Assignment.rating = 1;
     $scope.Assignment.color = "#00FFFF";
-
+    $scope.successmsg = '';
     checkcolor = function () {
         if ($scope.Assignment.rating == 1) {
             $scope.Assignment.color = "#00FFFF";
@@ -110,9 +117,8 @@ mainApp.controller('AssignmentController', function ($scope, $rootScope, $cookie
             success(function (data) {
                 document.getElementById('assignmentform').reset();
                 $scope.errorMessage = '';
-
+                $scope.successmsg = "Assignment added."
                 $scope.Assignment.color = "#00FFFF";
-
             }).error(function (err) {
                 $scope.errorMessage = err;
             });
@@ -131,7 +137,6 @@ mainApp.controller('TeacherController', function ($scope, $rootScope, $cookies, 
     $http.get("/teacher").
     success(function (data) {
         $scope.Teacherlist = data;
-        console.log(data);
     }).error(function (err) {});
 
     $scope.Add = function () {

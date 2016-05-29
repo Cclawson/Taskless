@@ -1,5 +1,8 @@
 <div class="logincont">
     <form method="post" id="assignmentform">
+        <div class="alert alert-success" ng-if="successmsg">
+            <strong>Success!</strong> {{successmsg}}
+        </div>
         <div class=" alert alert-danger " ng-if="errorMessage ">{{errorMessage}}</div>
         <form class="form-signin ">
             <h2 class="form-signin-heading ">Add Assignment</h2>

@@ -187,7 +187,6 @@ app.post('/addteacher', urlencodedParser, function (req, res) {
         "phone": req.body.phone,
         "userId": req.body.userId
     };
-    console.log(obj);
     db.push("/users/teachers[]", obj, true);
 
     var data = db.getData("/users/teachers");

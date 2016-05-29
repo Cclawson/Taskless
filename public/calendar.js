@@ -11,18 +11,16 @@ $("#calendar").fullCalendar({
         url: "/events",
         type: 'GET',
         dataType: 'json',
-        success: function (reply) {
-            console.log(reply);
-        }
+        success: function (reply) {}
     },
     eventClick: function (event) {
-        console.log(event.id);
-        console.log(event.title);
-
-        $.post("/removeassignment", {
-            name: event.title,
-            user: event.id
-        });
-        location.reload();
+        var x;
+        if (confirm("Are you sure you want to delete this assignment?") == true) {
+            $.post("/removeassignment", {
+                name: event.title,
+                user: event.id
+            });
+            location.reload();
+        }
     }
 });
