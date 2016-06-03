@@ -1,19 +1,11 @@
 {
     "users": {
         "users": [
-            {
-                "username": "user",
-                "password": "admin"
-            }
+
         ],
         "assignments": [],
         "teachers": [
-            {
-                "name": "t",
-                "class": "t",
-                "phone": "t",
-                "userId": "user"
-            }
+
         ]
     }
 }

@@ -31,6 +31,16 @@ function ($routeProvider) {
 
 mainApp.run(function ($rootScope, $cookies, $location, $route) {
 
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+        if ($cookies.get("username") == null) {
+            if (next.templateUrl == "AngularTemplates/login.html" || next.templateUrl == "AngularTemplates/homepage.html" || next.templateUrl == "AngularTemplates/register.html") {
+
+            } else {
+                $location.path("login");
+            }
+        }
+    });
+
     $rootScope.steps = [{
             msg: 'Home',
             link: '#home'
@@ -144,6 +154,7 @@ mainApp.controller('TeacherController', function ($scope, $rootScope, $cookies, 
             $scope.Teacher.userId = $cookies.get('username');
             $http.post('/addteacher', $scope.Teacher).
             success(function (data) {
+                document.getElementById('teacherform').reset();
                 $scope.Teacherlist = data;
                 $('#myModal').modal('toggle');
             }).error(function (err) {
